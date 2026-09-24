@@ -13,6 +13,5 @@ Built with:
 - Properties
 - Contact
 
-## Development
 
 
