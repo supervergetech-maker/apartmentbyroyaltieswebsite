@@ -1,24 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Building2, 
-  Home as HomeIcon, 
-  Car, 
-  Ship, 
-  Key, 
-  Compass, 
   MessageCircle, 
   ArrowRight, 
-  MapPin, 
-  ShieldCheck, 
-  Zap, 
   Crown,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
-import { COMPANY, generateWhatsAppLink } from '../data/company';
-import { PRIME_LOCATIONS } from '../data/listings';
+import { generateWhatsAppLink } from '../data/company';
+import { PRIME_LOCATIONS, PROPERTIES } from '../data/listings';
 import PropertyMatcher from '../components/PropertyMatcher';
+import PropertyCard from '../components/PropertyCard';
 import RealEstateJVSection from '../components/RealEstateJVSection';
 
 export default function HomePage() {
@@ -47,6 +39,105 @@ export default function HomePage() {
       image: "/images/hero/home-dining-clean.jpg",
       tag: "Dining & Lounge",
       caption: "Charming Dining Nooks & Reading Corners"
+    }
+  ];
+
+  const servicePillars = [
+    {
+      title: 'Shortlet Apartments',
+      image: '/images/apartments/siscilia-aqua/photo-01.jpg',
+      description: 'Fully serviced stays in Lekki, Oniru and Ikate with 24/7 power, fast Wi-Fi and concierge care.',
+      label: 'View available units',
+      to: '/properties'
+    },
+    {
+      title: 'House Rentals',
+      image: '/images/apartments/oniru-4bed/photo-10.jpg',
+      description: 'Flexible weekly, monthly and yearly homes in secure gated estates across Lagos Island.',
+      label: 'Enquire on rentals',
+      href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to enquire about House Rentals (Weekly/Monthly/Yearly).')
+    },
+    {
+      title: 'Car Rentals',
+      image: '/images/about/real-estate-jv.jpg',
+      description: 'Executive SUVs and sedans with vetted professional chauffeurs for smooth Lagos mobility.',
+      label: 'Request fleet options',
+      href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to enquire about Executive Car Rentals.')
+    },
+    {
+      title: 'Boat Rentals & Charters',
+      image: '/images/apartments/siscilia-aqua/photo-23.jpg',
+      description: 'Private yacht and speedboat experiences for coastal cruises, celebrations and corporate hosting.',
+      label: 'Book a charter',
+      href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to enquire about Boat & Yacht Charters.')
+    },
+    {
+      title: 'Property Sales',
+      image: '/images/about/about-exterior.jpg',
+      description: 'Vetted homes, off-plan developments and investment land in prime Lagos locations.',
+      label: 'Explore properties for sale',
+      href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to enquire about Property & Land Sales.')
+    },
+    {
+      title: 'Joint Venture Opportunities',
+      image: '/images/about/real-estate-jv.jpg',
+      description: 'Structured partnerships connecting landowners with reputable property developers and investors.',
+      label: 'Discuss a partnership',
+      href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to discuss Joint Venture (JV) Opportunities.')
+    }
+  ];
+
+  const locationImages = [
+    '/images/apartments/siscilia-aqua/photo-05.jpg',
+    '/images/apartments/oniru-4bed/photo-01.jpg',
+    '/images/apartments/ikate-2bed/photo-01.jpg',
+    '/images/apartments/oniru-4bed/photo-18.jpg',
+    '/images/apartments/siscilia-aqua/photo-15.jpg',
+    '/images/about/real-estate-jv.jpg'
+  ];
+
+  const royalStandards = [
+    {
+      image: '/images/apartments/siscilia-aqua/photo-03.jpg',
+      title: '24/7 Power Guarantee',
+      description: 'Reliable primary power backed by generators and inverters for an uninterrupted stay.'
+    },
+    {
+      image: '/images/apartments/oniru-4bed/photo-10.jpg',
+      title: '100% Verified Properties',
+      description: 'Every listing is physically inspected, so the real gallery matches what welcomes you.'
+    },
+    {
+      image: '/images/apartments/ikate-2bed/photo-02.jpg',
+      title: 'Personal Concierge',
+      description: 'Speak directly with our team on WhatsApp for fast, human assistance from enquiry to checkout.'
+    }
+  ];
+
+  const journeySteps = [
+    {
+      number: '01',
+      image: '/images/apartments/siscilia-aqua/photo-01.jpg',
+      title: 'Explore or Specify',
+      description: 'Browse verified stays or tell our concierge your location, dates and budget.'
+    },
+    {
+      number: '02',
+      image: '/images/apartments/oniru-4bed/photo-18.jpg',
+      title: 'Chat Directly',
+      description: 'Confirm live availability, rates and special requests with our team on WhatsApp.'
+    },
+    {
+      number: '03',
+      image: '/images/apartments/ikate-2bed/photo-03.jpg',
+      title: 'Inspect & Confirm',
+      description: 'Request a live walkthrough or visit, then secure your preferred dates.'
+    },
+    {
+      number: '04',
+      image: '/images/apartments/oniru-4bed/photo-01.jpg',
+      title: 'Arrive & Enjoy',
+      description: 'Check in smoothly and enjoy dependable power, Wi-Fi and attentive hosting.'
     }
   ];
 
@@ -170,7 +261,37 @@ export default function HomePage() {
 
       </section>
 
-      {/* 2. OUR 6 CORE SERVICE PILLARS */}
+      {/* 2. FEATURED VERIFIED PROPERTIES */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5">
+          <div className="max-w-2xl space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-700">
+              Real homes. Real photographs.
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-black text-slate-950">
+              Featured stays in Lagos
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Step inside our verified apartments before you book. Every image below comes from the property gallery.
+            </p>
+          </div>
+          <Link
+            to="/properties"
+            className="inline-flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-emerald-700 transition"
+          >
+            <span>See every property</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PROPERTIES.slice(0, 3).map((property) => (
+            <PropertyCard key={property.id} property={property} />
+          ))}
+        </div>
+      </section>
+
+      {/* 3. PHOTO-LED SERVICE PILLARS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
@@ -185,137 +306,41 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          
-          {/* Pillar 1 */}
-          <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 mb-2">
-              <Building2 className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-950">
-              Shortlet Apartments
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Curated, fully-serviced luxury apartments in prime locations (Lekki Phase 1, Oniru, Ikate) featuring 24/7 power, swimming pools, fitness centers, super-fast Wi-Fi, and dedicated concierge care.
-            </p>
-            <Link
-              to="/properties"
-              className="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-slate-600 space-x-1 pt-2"
-            >
-              <span>View Available Units</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-          </div>
+          {servicePillars.map((service) => {
+            const content = (
+              <>
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={`${service.title} by Apartments by Royalties`}
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+                  <h3 className="absolute bottom-5 left-5 right-5 text-xl font-serif font-bold text-white">
+                    {service.title}
+                  </h3>
+                </div>
+                <div className="p-6 space-y-4">
+                  <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 group-hover:text-emerald-700 transition">
+                    {service.label}
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </>
+            );
 
-          {/* Pillar 2 */}
-          <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 mb-2">
-              <HomeIcon className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-950">
-              House Rentals
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Flexible residential leasing solutions including weekly, monthly, and yearly executive tenancies in secure, gated estates across the Lagos Island corridor.
-            </p>
-            <a
-              href={generateWhatsAppLink("Hello Apartments by Royalties, I would like to enquire about House Rentals (Weekly/Monthly/Yearly).")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-slate-600 space-x-1 pt-2"
-            >
-              <span>Enquire on Rentals</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Pillar 3 */}
-          <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 mb-2">
-              <Car className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-950">
-              Car Rentals
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Executive mobility with our pristine fleet of luxury SUVs, sedans, and bulletproof options (Mercedes-Benz, Land Cruiser Prado, Lexus), complete with vetted professional chauffeurs.
-            </p>
-            <a
-              href={generateWhatsAppLink("Hello Apartments by Royalties, I would like to enquire about Executive Car Rentals.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-slate-600 space-x-1 pt-2"
-            >
-              <span>Request Fleet Options</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Pillar 4 */}
-          <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 mb-2">
-              <Ship className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-950">
-              Boat Rentals & Charters
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Private luxury yachts and speedboats for coastal cruises, private beach parties (Ilashe, Tarkwa Bay), corporate entertaining, and unforgettable waterfront experiences.
-            </p>
-            <a
-              href={generateWhatsAppLink("Hello Apartments by Royalties, I would like to enquire about Boat & Yacht Charters.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-slate-600 space-x-1 pt-2"
-            >
-              <span>Book Yacht Charter</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Pillar 5 */}
-          <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 mb-2">
-              <Key className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-950">
-              Property Sales
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Direct access to vetted luxury homes, off-plan residential developments, and high-capital appreciation land parcels in Lekki, Ikoyi, Victoria Island, and Epe.
-            </p>
-            <a
-              href={generateWhatsAppLink("Hello Apartments by Royalties, I would like to enquire about Property & Land Sales.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-slate-600 space-x-1 pt-2"
-            >
-              <span>Explore Properties for Sale</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
-          {/* Pillar 6 */}
-          <div className="p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition space-y-4">
-            <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 mb-2">
-              <Compass className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-serif font-bold text-slate-950">
-              Joint Venture Opportunities
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              Strategic partnerships for property developers, land owners, and institutional investors looking to co-develop high-yield residential and commercial projects.
-            </p>
-            <a
-              href={generateWhatsAppLink("Hello Apartments by Royalties, I would like to discuss Joint Venture (JV) Opportunities.")}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-slate-600 space-x-1 pt-2"
-            >
-              <span>Discuss JV Partnerships</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </a>
-          </div>
-
+            return service.to ? (
+              <Link key={service.title} to={service.to} className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition">
+                {content}
+              </Link>
+            ) : (
+              <a key={service.title} href={service.href} target="_blank" rel="noreferrer" className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition">
+                {content}
+              </a>
+            );
+          })}
         </div>
       </section>
 
@@ -344,18 +369,24 @@ export default function HomePage() {
             {PRIME_LOCATIONS.map((loc, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 rounded-3xl border border-slate-200/80 shadow-xs space-y-3 hover:border-slate-300 hover:shadow-md transition"
+                className="group bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-lg transition"
               >
-                <div className="flex items-center justify-between">
-                  <div className="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 border border-slate-100">
-                    <MapPin className="w-5 h-5 text-emerald-600" />
-                  </div>
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider bg-slate-50 px-2.5 py-1 rounded-full border border-slate-100">
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={locationImages[idx]}
+                    alt={`Luxury property in ${loc.name}`}
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <span className="absolute left-4 bottom-4 text-[10px] font-semibold text-white uppercase tracking-wider bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/20">
                     {loc.tagline || 'Prime Hub'}
                   </span>
                 </div>
-                <h4 className="font-serif font-bold text-lg text-slate-950">{loc.name}</h4>
-                <p className="text-xs text-slate-600 leading-relaxed">{loc.description}</p>
+                <div className="p-5 space-y-2">
+                  <h4 className="font-serif font-bold text-lg text-slate-950">{loc.name}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed">{loc.description}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -376,38 +407,21 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="p-6 rounded-2xl bg-white border border-slate-100 space-y-3 relative">
-            <span className="text-3xl font-serif font-bold text-slate-200">01</span>
-            <h4 className="font-serif font-bold text-base text-slate-950">Explore or Specify</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Browse our verified property snippets or send your custom location, dates, and budget directly to our concierge.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white border border-slate-100 space-y-3 relative">
-            <span className="text-3xl font-serif font-bold text-slate-200">02</span>
-            <h4 className="font-serif font-bold text-base text-slate-950">Direct WhatsApp Chat</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Connect in seconds with our dedicated team to confirm live availability, exact rates, and tailored requests.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white border border-slate-100 space-y-3 relative">
-            <span className="text-3xl font-serif font-bold text-slate-200">03</span>
-            <h4 className="font-serif font-bold text-base text-slate-950">Inspection & Confirmation</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Request a live video walkthrough or physical visit. Confirm dates with secure payment and caution deposit details.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white border border-slate-100 space-y-3 relative">
-            <span className="text-3xl font-serif font-bold text-slate-200">04</span>
-            <h4 className="font-serif font-bold text-base text-slate-950">VIP Arrival & Stay</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Enjoy 24/7 power, dedicated estate hosts, fast Wi-Fi, and seamless checkout with rapid caution deposit refund.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {journeySteps.map((step) => (
+            <div key={step.number} className="group rounded-2xl bg-white border border-slate-200 overflow-hidden shadow-sm hover:shadow-lg transition">
+              <div className="relative h-40 overflow-hidden">
+                <img src={step.image} alt={step.title} className="w-full h-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+                <span className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm text-slate-950 font-serif font-bold flex items-center justify-center shadow-sm">
+                  {step.number}
+                </span>
+              </div>
+              <div className="p-5 space-y-2">
+                <h4 className="font-serif font-bold text-base text-slate-950">{step.title}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">{step.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -428,35 +442,33 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-            <Zap className="w-5 h-5 text-emerald-600 mb-1" />
-            <h4 className="font-serif font-bold text-sm text-slate-900">24/7 Power Guarantee</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Zero interruptions. All properties feature robust primary power plus automatic heavy-duty generators and inverters.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-            <ShieldCheck className="w-5 h-5 text-emerald-600 mb-1" />
-            <h4 className="font-serif font-bold text-sm text-slate-900">100% Verified Properties</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              Every listing is physically inspected and authenticated. What you see in our real galleries is exactly what you get.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-slate-50 border border-slate-100 space-y-2">
-            <MessageCircle className="w-5 h-5 text-emerald-600 mb-1" />
-            <h4 className="font-serif font-bold text-sm text-slate-900">Instant WhatsApp Concierge</h4>
-            <p className="text-xs text-slate-600 leading-relaxed">
-              No endless automated phone menus. Chat directly with a human concierge at 08135031549 for rapid assistance.
-            </p>
-          </div>
+          {royalStandards.map((standard) => (
+            <div key={standard.title} className="group rounded-2xl bg-slate-50 border border-slate-200 overflow-hidden">
+              <img
+                src={standard.image}
+                alt={standard.title}
+                className="w-full h-44 object-cover transition duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="p-5 space-y-2">
+                <h4 className="font-serif font-bold text-base text-slate-900">{standard.title}</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">{standard.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* 8. FINAL CONVERSION CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-slate-950 text-white rounded-3xl p-8 sm:p-14 text-center space-y-6 relative overflow-hidden shadow-2xl">
+          <img
+            src="/images/apartments/oniru-4bed/photo-10.jpg"
+            alt="Luxury Lagos apartment interior"
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-slate-950/75" />
           <div className="relative z-10 max-w-2xl mx-auto space-y-4">
             <h2 className="text-2xl sm:text-4xl font-serif font-black text-white">
               Looking for your next apartment or property opportunity?
