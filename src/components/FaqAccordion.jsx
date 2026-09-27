@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, HelpCircle, Sparkles } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
 
 /**
  * TypewriterText Component
@@ -10,8 +10,6 @@ function TypewriterText({ text, speed = 15 }) {
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    setDisplayedText('');
-    setIsTyping(true);
     let index = 0;
 
     const timer = setInterval(() => {

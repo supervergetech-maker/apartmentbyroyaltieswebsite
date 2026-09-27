@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, MessageCircle, ExternalLink, Clock, MapPin } from 'lucide-react';
+import { Phone, Mail, MessageCircle, ExternalLink } from 'lucide-react';
 import { COMPANY, generateWhatsAppLink } from '../data/company';
 import FaqAccordion from '../components/FaqAccordion';
 

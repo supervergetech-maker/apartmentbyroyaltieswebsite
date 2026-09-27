@@ -13,10 +13,10 @@ export default function PhotoLightbox({
   propertyTitle = '',
   propertyLocation = ''
 }) {
-  if (!isOpen || images.length === 0) return null;
-
   // Keyboard navigation
   useEffect(() => {
+    if (!isOpen || images.length === 0) return;
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowRight') onNext();
@@ -24,7 +24,9 @@ export default function PhotoLightbox({
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [onClose, onNext, onPrev]);
+  }, [isOpen, images.length, onClose, onNext, onPrev]);
+
+  if (!isOpen || images.length === 0) return null;
 
   const inquiryMsg = `Hello Apartments by Royalties, I am viewing "${propertyTitle}" in ${propertyLocation} on your gallery. Please confirm availability and booking details.`;
   const whatsappUrl = generateWhatsAppLink(inquiryMsg);

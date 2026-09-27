@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, MessageCircle, Building2, Home as HomeIcon, Car, Ship, Key, Compass, Check, ShieldCheck, Zap, Globe, HeartHandshake, UserCheck, Star, Sparkles } from 'lucide-react';
+import { MessageCircle, Building2, Home as HomeIcon, Car, Ship, Key, Compass, ShieldCheck, Zap, Globe, HeartHandshake, UserCheck, Sparkles } from 'lucide-react';
 import { COMPANY, generateWhatsAppLink } from '../data/company';
 
 export default function AboutPage() {

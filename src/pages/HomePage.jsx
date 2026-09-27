@@ -12,6 +12,9 @@ import { PRIME_LOCATIONS, PROPERTIES } from '../data/listings';
 import PropertyMatcher from '../components/PropertyMatcher';
 import PropertyCard from '../components/PropertyCard';
 import RealEstateJVSection from '../components/RealEstateJVSection';
+import BoatFleetSection from '../components/BoatFleetSection';
+import VideoGallerySection from '../components/VideoGallerySection';
+import ExecutiveCarFleetSection from '../components/ExecutiveCarFleetSection';
 
 export default function HomePage() {
   const heroWhatsApp = generateWhatsAppLink(
@@ -59,10 +62,10 @@ export default function HomePage() {
     },
     {
       title: 'Car Rentals',
-      image: '/images/about/real-estate-jv.jpg',
-      description: 'Executive SUVs and sedans with vetted professional chauffeurs for smooth Lagos mobility.',
-      label: 'Request fleet options',
-      href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to enquire about Executive Car Rentals.')
+      image: '/images/cars/range-rover-2025.png',
+      description: 'Executive SUVs, Rolls-Royce, Lamborghinis and VIP vans with vetted chauffeurs for seamless Lagos mobility.',
+      label: 'View luxury car fleet',
+      href: '#car-fleet'
     },
     {
       title: 'Boat Rentals & Charters',
@@ -344,12 +347,27 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 3. DEDICATED REAL ESTATE PROPERTY SALES & JOINT VENTURE (JV) INVESTMENT HUB (DEEPER ASH THEME) */}
+      {/* 4. EXECUTIVE & LUXURY CAR FLEET */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ExecutiveCarFleetSection />
+      </section>
+
+      {/* 5. WATERFRONT BOAT FLEET, LUXURY YACHTS & JET SKIS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <BoatFleetSection />
+      </section>
+
+      {/* 6. VERIFIED YOUTUBE LIVE VIDEO WALKTHROUGHS */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <VideoGallerySection />
+      </section>
+
+      {/* 7. DEDICATED REAL ESTATE PROPERTY SALES & JOINT VENTURE (JV) INVESTMENT HUB (DEEPER ASH THEME) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <RealEstateJVSection />
       </section>
 
-      {/* 4. PRIME LAGOS COVERAGE HUBS (3 ON TOP ROW, 3 ON BOTTOM ROW) */}
+      {/* 8. PRIME LAGOS COVERAGE HUBS (3 ON TOP ROW, 3 ON BOTTOM ROW) */}
       <section className="bg-slate-50 py-16 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center max-w-3xl mx-auto space-y-3">
@@ -393,7 +411,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. HOW IT WORKS - SEAMLESS GUEST & CLIENT JOURNEY */}
+      {/* 8. HOW IT WORKS - SEAMLESS GUEST & CLIENT JOURNEY */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <span className="text-xs font-bold uppercase tracking-widest text-slate-400">
@@ -425,12 +443,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. INTERACTIVE PROPERTY MATCHER FINDER */}
+      {/* 9. INTERACTIVE PROPERTY MATCHER FINDER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <PropertyMatcher />
       </section>
 
-      {/* 7. WHY CHOOSE ROYALTIES PILLARS */}
+      {/* 10. WHY CHOOSE ROYALTIES PILLARS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="text-2xl sm:text-3xl font-serif font-black text-slate-950">
@@ -459,7 +477,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. FINAL CONVERSION CTA */}
+      {/* 11. FINAL CONVERSION CTA */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-slate-950 text-white rounded-3xl p-8 sm:p-14 text-center space-y-6 relative overflow-hidden shadow-2xl">
           <img

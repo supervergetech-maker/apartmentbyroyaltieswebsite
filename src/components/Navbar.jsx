@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MessageCircle, Menu, X } from 'lucide-react';
-import { COMPANY, generateWhatsAppLink } from '../data/company';
+import { generateWhatsAppLink } from '../data/company';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -101,6 +97,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
+                onClick={() => setIsOpen(false)}
                 className={`block px-3 py-2 rounded-lg text-base font-medium ${
                   isActive ? 'bg-slate-50 text-slate-950 font-semibold' : 'text-slate-600'
                 }`}

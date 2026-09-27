@@ -3,13 +3,13 @@ import { X, Calendar, Users, Shield, MessageCircle } from 'lucide-react';
 import { COMPANY, generateWhatsAppLink } from '../data/company';
 
 export default function BookingModal({ property, isOpen, onClose }) {
-  if (!isOpen || !property) return null;
-
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
   const [guestCount, setGuestCount] = useState(2);
   const [fullName, setFullName] = useState('');
   const [note, setNote] = useState('');
+
+  if (!isOpen || !property) return null;
 
   const handleProceedWhatsApp = (e) => {
     e.preventDefault();

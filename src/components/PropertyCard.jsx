@@ -4,8 +4,6 @@ import { MapPin, ArrowRight, MessageCircle, ChevronLeft, ChevronRight } from 'lu
 import { generateWhatsAppLink } from '../data/company';
 
 export default function PropertyCard({ property }) {
-  if (!property) return null;
-
   const {
     id,
     title,
@@ -14,7 +12,7 @@ export default function PropertyCard({ property }) {
     images = [],
     cautionDeposit,
     badge
-  } = property;
+  } = property ?? {};
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
@@ -53,6 +51,8 @@ export default function PropertyCard({ property }) {
 
   const inquiryMsg = `Hello Apartments by Royalties, I am interested in "${title}" located in ${location}. Please provide availability and booking details.`;
   const whatsappUrl = generateWhatsAppLink(inquiryMsg);
+
+  if (!property) return null;
 
   return (
     <div 

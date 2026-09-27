@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Search, MapPin, Building2, Calendar, MessageCircle, ArrowRight, Sparkles } from 'lucide-react';
-import { COMPANY, generateWhatsAppLink } from '../data/company';
+import { MapPin, Building2, Calendar, MessageCircle, Sparkles } from 'lucide-react';
+import { generateWhatsAppLink } from '../data/company';
 
 export default function PropertyMatcher() {
   const [serviceType, setServiceType] = useState('Luxury Shortlet');

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, X } from 'lucide-react';
-import { COMPANY, generateWhatsAppLink } from '../data/company';
+import { generateWhatsAppLink } from '../data/company';
 
 export default function WhatsAppFloatingButton() {
   const [showTooltip, setShowTooltip] = useState(true);

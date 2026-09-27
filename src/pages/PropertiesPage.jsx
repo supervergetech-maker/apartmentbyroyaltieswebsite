@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { MessageCircle, Send, MapPin, Sparkles, ShieldCheck, Zap, Video, CheckCircle2, Filter } from 'lucide-react';
+import { MessageCircle, Send, Sparkles, ShieldCheck, Zap, Video, Filter } from 'lucide-react';
 import { PROPERTIES } from '../data/listings';
-import { COMPANY, generateWhatsAppLink } from '../data/company';
+import { generateWhatsAppLink } from '../data/company';
 import PropertyCard from '../components/PropertyCard';
 import PropertyMatcher from '../components/PropertyMatcher';
 import FaqAccordion from '../components/FaqAccordion';
