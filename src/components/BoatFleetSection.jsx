@@ -29,7 +29,7 @@ export default function BoatFleetSection() {
           className="inline-flex items-center space-x-2 px-6 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs font-semibold tracking-wide transition shrink-0 shadow-sm"
         >
           <MessageCircle className="w-4 h-4 text-emerald-400" />
-          <span>Check Charter Dates on WhatsApp</span>
+          <span>Check Charter Dates on WhatsApp.</span>
         </a>
       </div>
 
