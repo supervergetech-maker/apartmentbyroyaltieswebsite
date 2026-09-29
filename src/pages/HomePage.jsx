@@ -69,7 +69,7 @@ export default function HomePage() {
     },
     {
       title: 'Boat Rentals & Charters',
-      image: '/images/apartments/siscilia-aqua/photo-23.jpg',
+      image: '/images/boat-charters/luxury-yacht.jpg',
       description: 'Private yacht and speedboat experiences for coastal cruises, celebrations and corporate hosting.',
       label: 'Book a charter',
       href: generateWhatsAppLink('Hello Apartments by Royalties, I would like to enquire about Boat & Yacht Charters.')

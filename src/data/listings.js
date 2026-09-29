@@ -211,11 +211,11 @@ export const CAR_FLEET = [
     title: "Toyota Hilux Adventure SRS",
     category: "Utility & Security Escort",
     image: "/images/cars/hilux-adventure.png",
-    rate: "₦170,000 / 12 Hours",
+    rate: "Contact for rates",
     features: ["Adventure Package", "Hard Bed Cover", "Security Escort Ready", "12-Hour Daily Shift", "All-Terrain Capability"],
-    description: "Toyota Hilux Adventure available for rental at ₦170k per 12 hours. Perfect for luggage support, security escorts, and project site mobility.",
-    badge: "₦170k / 12 hrs",
-    whatsappMsg: "Hello Apartments by Royalties, I would like to book the Toyota Hilux Adventure (₦170k/12 hours)."
+    description: "Toyota Hilux Adventure available for rental. Perfect for luggage support, security escorts, and project site mobility.",
+    badge: "Toyota Hilux",
+    whatsappMsg: "Hello Apartments by Royalties, I would like to book the Toyota Hilux Adventure."
   },
   {
     id: "benz-viano-vip-bus",
