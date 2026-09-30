@@ -44,7 +44,7 @@ export default function BoatFleetSection() {
               Important Charter Policy & Refundable Damage Deposit
             </h4>
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-light">
-              For any boat selected, an additional <strong>damage deposit fee equivalent to one hour charter rate</strong> will be charged before boarding. This deposit is <strong>100% refundable after 72 hours</strong> subject to no damages during the charter. Minimum charter duration for house boats is <strong>3 hours</strong>.
+              For any boat selected, an additional<strong>damage deposit fee equivalent to one hour charter rate</strong> will be charged before boarding. This deposit is <strong>100% refundable after 72 hours</strong> subject to no damages during the charter. Minimum charter duration for house boats is <strong>3 hours</strong>.
             </p>
           </div>
         </div>
